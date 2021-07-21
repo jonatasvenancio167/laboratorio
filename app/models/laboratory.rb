@@ -1,7 +1,12 @@
 class Laboratory < ApplicationRecord
-	belongs_to :exams
 
 	validate :status_desc
+
+	before_create {active(:status)}
+
+	def active(column)
+		self[column] = true
+	end
 
 	# <Sumary>
 	# Returns the type of the status

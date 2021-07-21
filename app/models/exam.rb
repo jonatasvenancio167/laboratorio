@@ -1,9 +1,15 @@
 class Exam < ApplicationRecord
-  has_many :laboratories, through: :laboratory_exams
+  has_many :laboratories
 
 
   validate :status_desc
   validate :type_exam
+
+  before_create {active(:status)}
+
+  def active(column)
+    self[column] = true
+  end
 
   #<Sumary>
   # Returns the type of the status
