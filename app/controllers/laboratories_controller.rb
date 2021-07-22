@@ -14,6 +14,7 @@ class LaboratoriesController < ApplicationController
 
 
   def show
+    render json: @laboratory
   end
 
   # <Sumary>

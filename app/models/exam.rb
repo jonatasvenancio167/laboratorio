@@ -1,6 +1,8 @@
 class Exam < ApplicationRecord
+  
   has_many :laboratories
-
+  has_many :laboratory_exams
+  has_many :exams, through: :laboratory_exams
 
   validate :status_desc
   validate :type_exam

@@ -1,5 +1,8 @@
 class Laboratory < ApplicationRecord
 
+	has_many :laboratory_exams
+	has_many :exams, through: :laboratory_exams
+
 	validate :status_desc
 
 	before_create {active(:status)}
