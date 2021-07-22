@@ -37,8 +37,10 @@ class ExamsController < ApplicationController
   # updated the of dates
 
   def update
-    if @exam = Exam.update(exam_params)
-      render json: @exam
+    @exam = Exam.find(params[:id])
+
+    if @exam.update!(exam_params)
+      render json: @exam, status: :ok
     else
       render json: @exam.errors, status: :unprocessable_entity
     end
@@ -50,7 +52,7 @@ class ExamsController < ApplicationController
 
     begin
       @exam = Exam.find(exam_id)
-      @exam.destroy if @exam.status == true
+      @exam.delete if @exam.status == true
       render json: "#{@exam.nome} deletado com sucesso!"
     rescue ActiveRecord::RecordNotFound
       render json: 'esse dado já foi deletado!'
