@@ -2,8 +2,8 @@
 API desenvolvida para realizar manuntenção de laboratórios e exames
 
 ## _Configuração_
-ruby on rails 6
-sqlite
+ - ruby on rails 6
+ - sqlite
 
 ## _Arquitetura_
 
