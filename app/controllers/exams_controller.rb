@@ -21,15 +21,12 @@ class ExamsController < ApplicationController
     laboratorys = params[:laboratory_id]
 
     if @exams.save
-
         laboratorys.each do |laboratory|
           LaboratoryExam.create(laboratory_id: laboratory, exam_id: @exams.id)
         end
-
-      @exam
-
+      @exams
     else
-      render json: @exam.errors, status: :unprocessable_entity
+      render json: @exams.errors.full_messages.join(''), status: :unprocessable_entity
     end
   end
 

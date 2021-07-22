@@ -1,1 +1,1 @@
-json.partial! @exam
+json.partial! @exams
